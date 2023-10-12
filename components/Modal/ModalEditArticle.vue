@@ -1,9 +1,9 @@
 <template>
   <b-modal id="bv-modal-edit" hide-footer>
-    <template #modal-title> {{ article.title }} </template>
+    <template #modal-title> Edit </template>
     <div class="d-block text-center text-dark">
       <div class="d-block text-dark form">
-        <b-form class="mt-5" @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form class="mt-5" @submit.prevent="onEdit(id)" @reset="onReset" v-if="show">
           <b-form-group id="input-group-2" label="Title:" label-for="input-2">
             <b-form-input
               id="input-2"
@@ -71,7 +71,7 @@ export default {
     }
   },
   props: {
-    article: {
+    id: {
       type: Object,
       default() {
         return {}
@@ -88,5 +88,20 @@ export default {
       },
     },
   },
+  methods: {
+    async onEdit(id) {
+      console.log(id)
+      try {
+        const result = await this.$axios.patch(`/rest/v1/articles?id=eq.${id}`, this.formEdit, {
+            headers: {
+                apikey: process.env.SUPABASE_ANON_KEY
+            }
+        })
+        window.location.reload()
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  }
 }
 </script>

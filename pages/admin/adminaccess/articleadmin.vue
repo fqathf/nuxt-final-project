@@ -115,26 +115,6 @@ export default {
         console.log(error)
       }
     },
-    async onEdit(event) {
-      /*event.preventDefault()
-      try {
-        const result = await this.$axios.put('/rest/v1/portfolios?some_column=eq.someValue', this.form, {
-
-        })
-      } catch (error) {
-        console.log(error)
-      }*/
-    },
-    async onDelete (event) {
-      /*event.preventDefault()
-      try {
-        const result = await this.$axios.delete('/rest/v1/portfolios?some_column=eq.someValue', this.form, {
-
-        })
-      } catch (error) {
-        console.log(error)
-      }*/
-    },
     onReset(event) {
       event.preventDefault()
       // Reset our form values

@@ -67,12 +67,7 @@
 </template>
 
 <script>
-import CardPortfolioAdmin from '@/components/Card/CardPortfolioAdmin.vue'
-
 export default {
-  components: {
-    CardPortfolioAdmin,
-  },
   data() {
     return {
       form: {

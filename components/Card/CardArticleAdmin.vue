@@ -19,21 +19,13 @@
         >Visit</b-button
       >
       <b-button id="show-btn-edit" @click="$bvModal.show('bv-modal-edit')" variant="secondary">Edit</b-button>
-      <EditArticle />
+      <ModalEditArticle :id="article.id" />
       <b-button id="show-btn-delete" @click="$bvModal.show('bv-modal-delete')" variant="danger">Delete</b-button>
-      <DeleteArticle />
+      <ModalDeleteArticle :id="article.id" />
     </b-card>
   </div>
 </template>
-<script>
-import EditArticle from '@/components/Modal/EditArticle.vue'
-import DeleteArticle from '@/components/Modal/DeleteArticle.vue'
-
-export default {
-  components: {
-    EditArticle,
-    DeleteArticle
-  },
+<script>export default {
   props: {
     article: {
       type: Object,
