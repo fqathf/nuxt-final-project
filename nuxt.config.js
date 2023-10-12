@@ -18,8 +18,8 @@ export default {
   },
 
   env: {
-    supabaseApi: process.env.SUPABASE_API,
-    supabaseKey: process.env.SUPABASE_ANON_KEY,
+    SUPABASE_URL: process.env.SUPABASE_URL,
+    SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
   },
 
   publicRuntimeConfig: {
@@ -55,7 +55,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: process.env.SUPABASE_API,
+    baseURL: process.env.SUPABASE_URL,
   },
 
   auth: {
