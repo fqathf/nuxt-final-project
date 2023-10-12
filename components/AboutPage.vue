@@ -59,7 +59,7 @@ export default {
       try {
         const result = await this.$axios.get("/rest/v1/articles", {
           headers: {
-            "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZoa3RocHlvaGZ3aWZrZm11bGt2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYyMTMyODMsImV4cCI6MjAxMTc4OTI4M30.JUjs83-uFpn9PpCAUwtt0Nvr9VN0LDmHlg6sIf1ErQc"
+            "apikey": process.env.SUPABASE_KEY
             }
         })
         console.log(result)
