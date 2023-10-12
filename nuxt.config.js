@@ -19,14 +19,14 @@ export default {
 
   env: {
     supabaseApi: process.env.SUPABASE_API,
-    supabaseKey: process.env.SUPABASE_KEY,
+    supabaseKey: process.env.SUPABASE_ANON_KEY,
   },
 
   publicRuntimeConfig: {
 
   },
   privateRuntimeConfig: {
-    apiKey: process.env.SUPABASE_KEY,
+    apiKey: process.env.SUPABASE_ANON_KEY,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

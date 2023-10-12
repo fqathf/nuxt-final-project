@@ -106,7 +106,7 @@ export default {
         const result = await this.$axios.post('/rest/v1/articles', this.form, {
           headers: {
             apikey:
-              process.env.SUPABASE_KEY
+              process.env.SUPABASE_ANON_KEY
             },
         })
         console.log(result)

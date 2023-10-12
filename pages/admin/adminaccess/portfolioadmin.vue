@@ -119,7 +119,7 @@ export default {
         const result = await this.$axios.get('/rest/v1/portfolios', {
           headers: {
             apikey:
-              process.env.SUPABASE_KEY
+              process.env.SUPABASE_ANON_KEY
             },
         })
         console.log(result)
