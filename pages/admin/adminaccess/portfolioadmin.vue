@@ -104,7 +104,7 @@ export default {
           {
             headers: {
               apikey:
-                process.env.SUPABASE_KEY
+                process.env.SUPABASE_ANON_KEY
               },
           }
         )
