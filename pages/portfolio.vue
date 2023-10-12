@@ -1,6 +1,7 @@
 <template>
   <!--tampilan banyak blog-->
-  <div>
+  <div class="pt-5 container">
+    <b-form-input class="mt-5" v-model="search" placeholder="Search..."></b-form-input>
     <div class="container pt-5 row mx-5">
       <CardPortfolio
         class="col-4 col-md-4"
@@ -21,6 +22,7 @@ export default {
   data() {
     return {
       portfolios: [],
+      search: '',
     }
   },
   computed: {

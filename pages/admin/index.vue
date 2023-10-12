@@ -29,9 +29,9 @@
               </div>
             </div>
             <div class="control">
-              <button type="submit" class="button is-dark is-fullwidth">
+              <NuxtLink to="/admin/adminaccess"><button type="submit" class="button is-dark is-fullwidth">
                 Log In
-              </button>
+              </button></NuxtLink>
             </div>
           </form>
         </div>

@@ -15,31 +15,42 @@
         of the card's content.
       </b-card-text>
 
-      <NuxtLink :to="'/' + article.id"><b-button href="#" variant="primary">Visit</b-button></NuxtLink>
-      <b-button variant="secondary">Edit</b-button>
-      <b-button variant="danger">Delete</b-button>
+      <b-button :to="'/article/' + article.id" href="#" variant="primary"
+        >Visit</b-button
+      >
+      <b-button id="show-btn-edit" @click="$bvModal.show('bv-modal-edit')" variant="secondary">Edit</b-button>
+      <EditArticle />
+      <b-button id="show-btn-delete" @click="$bvModal.show('bv-modal-delete')" variant="danger">Delete</b-button>
+      <DeleteArticle />
     </b-card>
   </div>
 </template>
 <script>
+import EditArticle from '@/components/Modal/EditArticle.vue'
+import DeleteArticle from '@/components/Modal/DeleteArticle.vue'
+
 export default {
+  components: {
+    EditArticle,
+    DeleteArticle
+  },
   props: {
     article: {
       type: Object,
       default() {
         return {}
-      }
+      },
     },
   },
   computed: {
     localTask: {
-      get () {
+      get() {
         return this.article
       },
-      set (newValue) {
+      set(newValue) {
         this.$emit('update:article', newValue)
-      }
-    }
-  }
+      },
+    },
+  },
 }
 </script>

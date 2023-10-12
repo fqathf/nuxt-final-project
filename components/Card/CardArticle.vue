@@ -15,7 +15,7 @@
         of the card's content.
       </b-card-text>
 
-      <NuxtLink :to="'/' + article.id"><b-button href="#" variant="primary">Visit</b-button></NuxtLink>
+      <b-button :to="'/article/' + article.id" href="#" variant="primary">Visit</b-button>
     </b-card>
   </div>
 </template>
