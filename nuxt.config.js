@@ -23,7 +23,7 @@ export default {
   },
 
   publicRuntimeConfig: {
-
+    
   },
   privateRuntimeConfig: {
     apiKey: process.env.SUPABASE_ANON_KEY,
