@@ -1,6 +1,6 @@
 <template>
   <b-modal id="bv-modal-delete" hide-footer>
-    <template #modal-title> Delete </template>
+    <template #modal-title> Delete</template>
     <div class="d-block text-center text-dark">
       <h4>Are you sure to delete this article?</h4>
       <b-button @click="onDelete(id)" variant="danger">Delete</b-button>
@@ -17,6 +17,10 @@ export default {
       type: String,
       default: '',
     },
+    /*article: {
+      type: Object,
+      default: '',
+    }*/
   },
   methods: {
     async onDelete(id) {

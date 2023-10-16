@@ -18,15 +18,30 @@
       <b-button :to="'/article/' + article.id" href="#" variant="primary"
         >Visit</b-button
       >
-      <b-button id="show-btn-edit" @click="$bvModal.show('bv-modal-edit')" variant="secondary">Edit</b-button>
-      <ModalEditArticle :id="article.id" />
-      <b-button id="show-btn-delete" @click="$bvModal.show('bv-modal-delete')" variant="danger">Delete</b-button>
+      <b-button
+        id="show-btn-edit"
+        :to="'/admin/adminaccess/articleadmin/' + id"
+        variant="secondary"
+        >Edit</b-button
+      >
+      <ModalEditArticle :id="article.id" :article="article" />
+      <b-button id="show-btn-delete" @click="onDelete(id)" variant="danger"
+        >Delete</b-button
+      >
       <ModalDeleteArticle :id="article.id" />
     </b-card>
   </div>
 </template>
-<script>export default {
+<script>
+export default {
+  data() {
+    return {}
+  },
   props: {
+    id: {
+      type: String,
+      default: '',
+    },
     article: {
       type: Object,
       default() {
@@ -43,6 +58,33 @@
         this.$emit('update:article', newValue)
       },
     },
+  },
+  methods: {
+    async onDelete(id) {
+      console.log(id)
+      try {
+        const result = await this.$axios.delete(
+          `/rest/v1/articles?id=eq.${id}`,
+          {
+            headers: {
+              apikey: process.env.SUPABASE_ANON_KEY,
+            },
+          }
+        )
+        window.location.reload()
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    /*console.log(id)
+      let deletePrompt = prompt("Type \"" + this.article.title + "\" to delete this article")
+      if (deletePrompt == this.article.title) {
+        async function confirmDelete(id) {
+          
+      } else {
+        alert("Tidak Sesuai")
+      }
+    },*/
   },
 }
 </script>

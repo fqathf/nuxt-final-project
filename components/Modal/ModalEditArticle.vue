@@ -1,6 +1,6 @@
 <template>
   <b-modal id="bv-modal-edit" hide-footer>
-    <template #modal-title> Edit </template>
+    <template #modal-title> Edit {{ article.title }} </template>
     <div class="d-block text-center text-dark">
       <div class="d-block text-dark form">
         <b-form class="mt-5" @submit.prevent="onEdit(id)" @reset="onReset" v-if="show">
@@ -51,7 +51,7 @@
         </b-form>
       </div>
     </div>
-    <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-edit')"
+    <b-button class="mt-3" block @click="onClose()"
       >Close Me</b-button
     >
   </b-modal>
@@ -61,30 +61,23 @@ export default {
   data() {
     return {
       formEdit: {
-        title: '',
-        author: '',
-        content: '',
-        img: '',
+        title: `this.article.title`,
+        author: `this.article.author`,
+        content: `this.article.content`,
+        img: `this.article.img`,
       },
       show: true,
-      articles: [],
     }
   },
   props: {
     id: {
+      type: String,
+      default: '',
+    },
+    article: {
       type: Object,
       default() {
         return {}
-      },
-    },
-  },
-  computed: {
-    localTask: {
-      get() {
-        return this.article
-      },
-      set(newValue) {
-        this.$emit('update:article', newValue)
       },
     },
   },
@@ -102,6 +95,9 @@ export default {
         console.log(error)
       }
     },
+    onClose() {
+      window.location.reload()
+    }
   }
 }
 </script>

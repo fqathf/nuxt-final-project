@@ -57,6 +57,7 @@
         v-for="(article, i) in resultQuery"
         :key="i"
         :article="article"
+        :id="article.id"
       />
     </div>
   </div>
@@ -110,6 +111,7 @@ export default {
             },
         })
         console.log(result)
+        window.location.reload()
         //this.articles = result.data
       } catch (error) {
         console.log(error)
