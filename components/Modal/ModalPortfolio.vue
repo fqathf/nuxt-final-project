@@ -1,5 +1,5 @@
 <template>
-  <b-modal :id="portfolio.id">
+  <b-modal :id="portfolio.id" ok-only ok-title="Close" ok-variant="secondary">
     <template #modal-title>
       <p class="text-dark">{{ portfolio.title }}</p>
     </template>
