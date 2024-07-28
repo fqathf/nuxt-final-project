@@ -79,6 +79,7 @@
 </template>
 <script>
 export default {
+  middleware: 'guest',
   data() {
     return {
       paramId: this.$route.params.id,
