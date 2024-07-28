@@ -2,7 +2,7 @@
   <div>
     <b-card
       :title="portfolio.title"
-      :img-src="portfolio.photo"
+      :img-src="photo[0]"
       :article="portfolio"
       img-alt="Image"
       img-top
@@ -11,11 +11,12 @@
       class="mb-2 text-dark"
     >
       <b-card-text>
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
+        Utilized: {{ portfolio.tech }}
       </b-card-text>
-
-      <b-button :href="portfolio.url" target="_blank" variant="primary">Visit</b-button>
+      <b-button variant="info" v-b-modal="portfolio.id">Detail</b-button>
+      <b-button v-if="portfolio.url" :href="portfolio.url" target="_blank" variant="primary">Visit</b-button>
+      
+      <ModalPortfolio :photo="photo" :portfolio="portfolio"/>
     </b-card>
   </div>
 </template>
@@ -28,6 +29,11 @@ export default {
         return {}
       }
     },
+  },
+  data() {
+    return {
+      photo: this.portfolio.photo ? this.portfolio.photo.split(',') : [],
+    }
   },
   computed: {
     localTask: {
